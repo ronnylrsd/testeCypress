@@ -1,6 +1,6 @@
 <h1 align="center">Test E2E Tricents</h1>
 
-<h3 align="center">Projeto desenvolvido em Cypress</h3>
+<h3 align="center">Projeto testado com Cucumber e Cypress</h3>
 
 ![Aplicação testada](https://github.com/user-attachments/assets/8dcc6e24-9a89-428b-8b29-75542f437249)
 
