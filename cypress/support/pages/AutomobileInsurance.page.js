@@ -34,17 +34,17 @@ const STEPS_NAV = '#idealsteps-nav'
 const LOADER_QUOTE_MSG = '#xLoaderQuote'
 const LOADER_PRICE_MSG = '#xLoaderPrice'
 const FORMS = '#insurance-form'
-const age = faker.number.int({ min: 18, max: 70 });
-const birthdate = new Date();
-birthdate.setFullYear(birthdate.getFullYear() - age);
-const formattedBirthdate = birthdate.toLocaleDateString("en-US");
+const age = faker.number.int({ min: 18, max: 70 })
+const birthdate = new Date()
+birthdate.setFullYear(birthdate.getFullYear() - age)
+const formattedBirthdate = birthdate.toLocaleDateString("en-US")
 const hobbies = [
     '#speeding',
     '#bungeejumping',
     '#cliffdiving',
     '#skydiving',
     '#other'
-  ];
+  ]
 const priceOptions = [
     '#selectsilver',
     '#selectgold',
@@ -108,8 +108,8 @@ Cypress.Commands.add('PassoEnterInsuranceData', () => {
     cy.get(INPUT_ZIPCODE).type(automobileInsurance.zipcode)
     cy.get(SELECT_OCCUPATION).select(automobileInsurance.occupation)
     automobileInsurance.selectedHobbies.forEach(hobby => {
-        cy.get(hobby).check({force: true});
-    });
+        cy.get(hobby).check({force: true})
+    })
     cy.get(BTN_NEXT_PRODUCT_DATA).click({timeout: 10000})
 })
 
@@ -119,14 +119,14 @@ Cypress.Commands.add('PassoEnterProductData', () => {
     cy.get(SELECT_MERIT_RATING).select(automobileInsurance.meritRating)
     cy.get(SELECT_DAMAGE_INSURANCE).select(automobileInsurance.damageInsurance)
     automobileInsurance.optionalProducts.forEach(product => {
-        cy.get(product).click({ force: true });
-    });
-    cy.get(SELECT_COURTESY_CAR).select(automobileInsurance.courtesyCar);
+        cy.get(product).click({ force: true })
+    })
+    cy.get(SELECT_COURTESY_CAR).select(automobileInsurance.courtesyCar)
     cy.get(BTN_NEXT_SELECT_PRICE).click({timeout: 10000})
 })
 
 Cypress.Commands.add('PassoSelectPriceOption', () => {
-    cy.get(automobileInsurance.RADIO_PRICE_OPTIONS).click({force: true});
+    cy.get(automobileInsurance.RADIO_PRICE_OPTIONS).click({force: true})
     cy.get(BTN_NEXT_SEND_QUOTE).click({timeout: 10000})
 })
 
@@ -143,24 +143,23 @@ Cypress.Commands.add('PassoSendQuoteMalPreenchido', () => {
         { selector: INPUT_USERNAME, value: automobileInsurance.username },
         { selector: INPUT_PASSWORD, value: automobileInsurance.password, options: { log: false } },
         { selector: INPUT_CONFIRM_PASSWORD, value: automobileInsurance.password, options: { log: false } }
-    ];
+    ]
 
-    const campoParaDeixarVazio = Cypress._.sample(campos);
+    const campoParaDeixarVazio = Cypress._.sample(campos)
 
     campos.forEach(campo => {
         if (campo === campoParaDeixarVazio) {
-            cy.get(campo.selector).clear();
+            cy.get(campo.selector).clear()
         } else {
-            cy.get(campo.selector).type(campo.value, campo.options || {});
+            cy.get(campo.selector).type(campo.value, campo.options || {})
         }
-    });
-});
+    })
+})
 
 
 Cypress.Commands.add('enviarQuote', () => {
-    cy.get(BTN_SEND_EMAIL).click();
-});
-
+    cy.get(BTN_SEND_EMAIL).click({ timeout: 10000 })
+})
 
 Cypress.Commands.add('validaSucessoEnvioEmail', () => {
     const timestamp = new Date().toISOString().replace(/:/g, '-')
@@ -180,7 +179,7 @@ Cypress.Commands.add('validaSucessoEnvioEmail', () => {
 
         cy.writeFile(fileName, testData)
       })   
-});
+})
 
 Cypress.on('fail', (error, runnable) => {
     const timestamp = new Date().toISOString().replace(/:/g, '-')
@@ -192,7 +191,7 @@ Cypress.on('fail', (error, runnable) => {
     }
     cy.writeFile(fileName, testData)
     throw error
-});
+})
 
 
 Cypress.Commands.add('clicaCategory', step => {
@@ -220,8 +219,8 @@ Cypress.Commands.add('LoaderMessagem', message => {
     cy.get(selector, { timeout: 10000 })
         .should('contain.text', message)
         .then(() => {
-            testData.testStatus = 'Successo';
-            testData.testMessage = 'A mensagem obtida é: ' + message;
+            testData.testStatus = 'Successo'
+            testData.testMessage = 'A mensagem obtida é: ' + message
         })
         cy.writeFile(fileName, testData)
 })
@@ -281,6 +280,74 @@ Cypress.Commands.add('formularioVazio', () => {
         })
     })
     cy.writeFile(fileName, testData)
-});
+})
 
+Cypress.Commands.add('reenviarFormulario', () => {
+    cy.fixture('C01-automobileInsurance-2025-04-06T20-16-28.157Z.json').then((data) => {
+        const { automobileInsurance } = data
 
+        cy.get(SELECT_MAKE).select(automobileInsurance.make)
+        cy.get(INPUT_ENGINE_PERFORMANCE).type(automobileInsurance.enginePerformance)
+        cy.get(INPUT_DATE_OF_MANUFACTURE).type(automobileInsurance.dateOfManufacture)
+        cy.get(SELECT_NUMBER_OF_SEATS).select(automobileInsurance.numberOfSeats)
+        cy.get(SELECT_FUEL_TYPE).select(automobileInsurance.fuelType)
+        cy.get(INPUT_LAST_PRICE).type(automobileInsurance.lastPrice)
+        cy.get(INPUT_ANNUAL_MILEAGE).type(automobileInsurance.annualMileage)
+        cy.get(BTN_NEXT_INSURANT_DATA).click({ timeout: 10000 })
+
+        cy.get(INPUT_FIRST_NAME).type(automobileInsurance.firstName)
+        cy.get(INPUT_LAST_NAME).type(automobileInsurance.lastName)
+        cy.get(INPUT_BIRTHDATE).type(automobileInsurance.birthdate)
+        if (automobileInsurance.gender === true) {
+            cy.get(RADIO_MALE).click({ force: true })
+        } else {
+            cy.get(RADIO_FEMALE).click({ force: true })
+        }
+        cy.get(SELECT_COUNTRY).select(automobileInsurance.country)
+        cy.get(INPUT_ZIPCODE).type(automobileInsurance.zipcode)
+        cy.get(SELECT_OCCUPATION).select(automobileInsurance.occupation)
+        automobileInsurance.selectedHobbies.forEach(hobby => {
+            cy.get(hobby).check({ force: true })
+        })
+        cy.get(BTN_NEXT_PRODUCT_DATA).click({ timeout: 10000 })
+
+        cy.get(INPUT_START_DATE).type(automobileInsurance.startDate)
+        cy.get(SELECT_INSURANCE_SUM).select(automobileInsurance.insuranceSum)
+        cy.get(SELECT_MERIT_RATING).select(automobileInsurance.meritRating)
+        cy.get(SELECT_DAMAGE_INSURANCE).select(automobileInsurance.damageInsurance)
+        automobileInsurance.optionalProducts.forEach(product => {
+            cy.get(product).click({ force: true })
+        })
+        cy.get(SELECT_COURTESY_CAR).select(automobileInsurance.courtesyCar)
+        cy.get(BTN_NEXT_SELECT_PRICE).click({ timeout: 10000 })
+
+        cy.get(automobileInsurance.RADIO_PRICE_OPTIONS).click({ force: true })
+        cy.get(BTN_NEXT_SEND_QUOTE).click({ timeout: 10000 })
+
+        cy.get(INPUT_EMAIL).type(automobileInsurance.email)
+        cy.get(INPUT_USERNAME).type(automobileInsurance.username)
+        cy.get(INPUT_PASSWORD).type(automobileInsurance.password, { log: false })
+        cy.get(INPUT_CONFIRM_PASSWORD).type(automobileInsurance.password, { log: false })
+
+        cy.get(BTN_SEND_EMAIL).click({ timeout: 10000 })
+    })
+})
+
+Cypress.Commands.add('validaSucessoReenvioEmail', () => {
+    const timestamp = new Date().toISOString().replace(/:/g, '-')
+    const fileName = `cypress/fixtures/C06-automobileInsurance-${timestamp}.json`
+    const testData = {
+        testStatus: 'PENDING',
+        testMessage: '',
+    }
+    
+    cy.get('h2', { timeout: 10000 })
+      .should('contain.text', 'e-mail')
+      .and('contain.text', 'success')
+      .then(() => {
+        testData.testStatus = 'Successo'
+        testData.testMessage = 'Email reenviado com sucesso'
+
+        cy.writeFile(fileName, testData)
+      })   
+})

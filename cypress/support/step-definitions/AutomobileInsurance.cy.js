@@ -47,3 +47,11 @@ And('o usuário atualiza a página', () => {
 Then('o sistema mostrará o fórmulário vazio', () => {
     cy.formularioVazio()
 })
+
+When('o usuário satisfaz todos os campos obrigatórios com informações já enviadas', () => {
+    cy.reenviarFormulario()
+})
+
+Then('o sistema notificará que o e-mail foi reenviado com sucesso', () => {
+    cy.validaSucessoReenvioEmail()
+})
