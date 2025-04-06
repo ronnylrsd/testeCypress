@@ -1,31 +1,20 @@
 <h1 align="center">Test E2E Tricents</h1>
 
 <h3 align="center">Projeto desenvolvido em Cypress</h3>
-<p align="center">
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-praticas-adotadas">Práticas Adotadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-ambiente">Ambiente</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-colaborador">Colaborador</a>
-</p>
+
+![Aplicação testada](https://github.com/user-attachments/assets/8dcc6e24-9a89-428b-8b29-75542f437249)
 
 <br>
 
 ## 💻 Projeto
 
-Este projeto foi criado para aplicar os conhecimentos em testes automatizados utilizando Cypress e Gherkin. Ele cobre cenários da funcionalidade 'tricentis-01 - Automobile Insurance'. Com as seguintes seções:
-- Início
-- Sobre
-- Projetos
-- Habilidades
-- Experiência
-- Contato
+Este projeto foi criado para aplicar os conhecimentos em testes automatizados utilizando Cypress e Gherkin. Ele cobre cenários da funcionalidade 'tricentis-01 - Automobile Insurance', validando diferentes fluxos e regras de negócio da aplicação.
 
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
+- [NodeJS](https://nodejs.org/en)
 - [Cucumber](https://cucumber.io/docs/)
 - [Cypress](https://docs.cypress.io/app/get-started/why-cypress)
 - [Faker](https://fakerjs.dev/guide/)
@@ -41,8 +30,9 @@ Esse projeto foi desenvolvido segundo essas práticas:
 
 
 ## ⚙️ Configuração do Ambiente
-Preparar o seu ambiente Cypress para novos projetos na sua máquina.
+Siga os passos abaixo para configurar o ambiente e rodar os testes localmente:
 
+- Instale o NodeJS
 - Instale o Visual Studio Code
 - Clone o repositório
 - Abra o projeto com VSCode
@@ -53,6 +43,21 @@ Preparar o seu ambiente Cypress para novos projetos na sua máquina.
 ## 🚀 Como executar
 
 - Rode o comando `npx cypress open` para abrir a interface gráfica do cypress ou `npx cypress run` para rodar em background.
+
+## 📱 Exemplos de telas
+![Envio com sucesso](https://github.com/user-attachments/assets/4b9fcdad-69cc-43c6-831a-60712c0c79d9)
+
+![Último step com informações faltando](https://github.com/user-attachments/assets/4b117993-fc63-4379-b429-dee8d1f5ee4f)
+
+![Regra de negócio no 4° passo: preencher os 3 primeiros passos](https://github.com/user-attachments/assets/f5752fdc-be2d-485c-984c-9de33552f8ae)
+
+![Regra de negócio no 5° passo: escolher uma opção de preço no 4° passo](https://github.com/user-attachments/assets/5971cf37-b208-469f-98ec-f81e1ccfc35a)
+
+## 🔭 OBSERVAÇÕES
+
+- Atualizar a página faz com que os dados sejam perdidos
+- É possível reenviar as mesmas informações
+- É possível enviar o formulário sem os valores opcionais
 
 ## 👷 COLABORADOR
 
