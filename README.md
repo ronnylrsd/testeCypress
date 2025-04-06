@@ -45,12 +45,16 @@ Siga os passos abaixo para configurar o ambiente e rodar os testes localmente:
 - Rode o comando `npx cypress open` para abrir a interface gráfica do cypress ou `npx cypress run` para rodar em background.
 
 ## 📱 Exemplos de telas
+### Envio com sucesso
 ![Envio com sucesso](https://github.com/user-attachments/assets/4b9fcdad-69cc-43c6-831a-60712c0c79d9)
 
+### Último step com informações faltando 
 ![Último step com informações faltando](https://github.com/user-attachments/assets/4b117993-fc63-4379-b429-dee8d1f5ee4f)
 
+### Regra de negócio no 4° passo - preencher os 3 primeiros passos
 ![Regra de negócio no 4° passo: preencher os 3 primeiros passos](https://github.com/user-attachments/assets/f5752fdc-be2d-485c-984c-9de33552f8ae)
 
+### Regra de negócio no 5° passo - escolher uma opção de preço no 4° passo
 ![Regra de negócio no 5° passo: escolher uma opção de preço no 4° passo](https://github.com/user-attachments/assets/5971cf37-b208-469f-98ec-f81e1ccfc35a)
 
 ## 🔭 OBSERVAÇÕES
