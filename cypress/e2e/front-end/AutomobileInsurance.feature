@@ -9,7 +9,7 @@ Funcionalidade: tricentis-01 - Automobile Insurance
         E o usuário envia a quote
         Então o sistema notificará que o e-mail foi enviado com sucesso
 
-   Cenário: 02 Enviar Quote com sem preencher o último step adequadamente
+   Cenário: 02 Enviar Quote sem preencher o último step adequadamente
         Dado que o usuário acessou o portal Tricentis na categoria Automobile
         Quando o usuário satisfaz preenche os quatro primeiros passos
         E não preenche corretamente o último passo
