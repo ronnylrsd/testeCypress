@@ -1,0 +1,38 @@
+{
+  "automobileInsurance": {
+    "make": "Skoda",
+    "enginePerformance": 914,
+    "dateOfManufacture": "12/12/2023",
+    "numberOfSeats": 3,
+    "fuelType": "Electric Power",
+    "lastPrice": 56670,
+    "annualMileage": 48999,
+    "firstName": "Aric",
+    "lastName": "Parker",
+    "age": 34,
+    "birthdate": "4/6/1991",
+    "gender": false,
+    "country": "Cocos (Keeling) Islands",
+    "zipcode": "80125368",
+    "occupation": "Employee",
+    "selectedHobbies": [
+      "#skydiving",
+      "#other",
+      "#bungeejumping"
+    ],
+    "startDate": "4/30/2026",
+    "insuranceSum": "7000000",
+    "meritRating": "Bonus 7",
+    "damageInsurance": "Full Coverage",
+    "optionalProducts": [
+      "#LegalDefenseInsurance"
+    ],
+    "courtesyCar": "No",
+    "RADIO_PRICE_OPTIONS": "#selectgold",
+    "email": "Richard7@yahoo.com",
+    "username": "Angus_Shanahan",
+    "password": "884Re8"
+  },
+  "testStatus": "Successo",
+  "testMessage": "Email enviado com sucesso"
+}
